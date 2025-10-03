@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.26.0",
+    "@google/clasp": "^2.5.0",
+    "@types/google-apps-script": "^1.0.97",
+    "@types/jest": "^29.5.14",
+    "babel-jest": "^29.7.0",
+    "esbuild": "^0.25.1",
+    "jest": "^29.7.0",
+    "npm-check": "^6.0.1",
+    "typescript": "^5.8.2"
+  },
+  "name": "gas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nabenabeshi/gas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nabenabeshi/gas/issues"
+  },
+  "homepage": "https://github.com/nabenabeshi/gas#readme"
+}
