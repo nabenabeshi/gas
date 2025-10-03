@@ -134,3 +134,9 @@ out
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# dist directory
+dist/*
+
+# appsscript.json は管理対象
+!dist/appsscript.json
