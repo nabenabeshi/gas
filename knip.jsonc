@@ -1,0 +1,16 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "src/**/*.ts", // ソースコード全体をエントリーポイントとする
+    "build.ts"     // jest.config.tsは自動検出されるため削除
+  ],
+  "ignore": [
+    "dist/**/*.js" // distフォルダ内の成果物は解析対象から除外
+  ],
+  "ignoreDependencies": [
+    "@google/clasp",
+    "@types/google-apps-script",
+    "babel-jest", // Jestが内部的に使用するため無視
+    "ts-node"     // Jestが内部的に使用するため無視
+  ]
+}
