@@ -1,5 +1,6 @@
 
-import { printHelloWorld } from "./printHelloWorld"
+import { printHelloWorld } from "./printHelloWorld";
+import { execHogehoge } from "./execHogehoge";
 
 export function sendForm(event:GoogleAppsScript.Events.FormsOnFormSubmit) {
 
@@ -9,4 +10,8 @@ export function sendForm(event:GoogleAppsScript.Events.FormsOnFormSubmit) {
 
 export function doPost(event:GoogleAppsScript.Events.AppsScriptHttpRequestEvent){
 
+}
+
+export function triggerDailyHogehoge(event:GoogleAppsScript.Events.TimeDriven){
+  execHogehoge(event);
 }

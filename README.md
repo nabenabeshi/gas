@@ -3,18 +3,17 @@
 これはGoogle Apps Script(GAS) を TypeScript で開発するためのプロジェクトテンプレートです。
 モダンな開発ツールと規約を導入し、効率的で品質の高い開発を目指します。
 
-## :memo: 概要
+## :memo: 1. 概要
 
 このプロジェクトテンプレートでは、TypeScriptで書かれたソースコードを`esbuild`でビルドし、`@google/clasp`を使ってGASプロジェクトとしてデプロイします。また、`Jest`による単体テスト、`knip`による不要なコードの検出、`gitmoji`と`Conventional Commits`によるコミット規約を導入しています。
 
-## :wrench: 開発環境の構築
+## :wrench: 2. 開発環境の構築
 
 開発を始める前に、次のツールをローカル環境にセットアップしてください。
 
 1. `Node.js`のインストール
-このプロジェクトは`Node.js``v20``LST版`を使用します。
-開発者間の環境を統一するため、バージョン管理ツール`nvm`(Node Version Manager)を利用します。
-`nvm`を使うことでプロジェクトごとに`Node.js`のバージョンを簡単に切り替えることができます。
+このプロジェクトは`Node.js` `v20``LST版`を使用します。
+開発者間の環境を統一するため、バージョン管理ツール`nvm`(Node Version Manager)を利用します。`nvm`を使うことでプロジェクトごとに`Node.js`のバージョンを簡単に切り替えることができます。
     1. `nvm`のインストール
          - [nvm(macOS/Linux)](https://github.com/nvm-sh/nvm)
          - [nvm-windows(Windows)](https://github.com/coreybutler/nvm-windows)
@@ -47,23 +46,39 @@
     npm install -g gitmoji-cli
     ```
 
-## :rocket: 主なコマンド
+## :rocket: X. プロジェクト設定
 
-- テストの実行
+- SCRIPT ID
+  - .clasp.json の `INSERT TO YOUR SCRIPT ID`をGASのスクリプトIDに置き換えてください。
+  - このプロジェクトでは、GASへのpushは上書き更新（ALL DELETE → PASTE）となるため、GAS側のバックアップは適宜実施してください。
+
+## :rocket: X. 実装の流れ
+
+実装の流れを記載します。
+
+1. 関数の実装
+いい感じに実装してください。サンプルとして日次トリガー用関数の新規作成方法を[こちら](docs/adding-functions.md)に記載するので必要に応じて参照してください。
+
+
+2. 単体テストの実行
 `Jest`を使って`src`ディレクトリ内のテストコードを実行します。
 
     ```bash
     npm test
     ```
 
-- ビルド
+1. ビルド
 `esbuild`を使って`src`ディレクトリのTypeScriptファイルを`dist/index.js`にバンドルします。
 
     ```bash
     npm run build
     ```
 
-- GASプロジェクトへのプッシュ
+1. gitへのコミット
+単体テストとビルドが完了したソースコードをgitへコミットしてください。
+コミット規約は[:memo: 4. コミット規約](#memo-4-コミット規約)を参照してください。
+
+1. GASへの適用
 ビルドされたファイルと`clasp`を使ってGASプロジェクトにアップロードします。
 
     ```bash
@@ -72,6 +87,8 @@
     npx clasp open # GASプロジェクトをブラウザで開く
     ```
 
+必要に応じて以下も実施してください。
+
 - 不要なコードの検出
 `knip`を実行し、プロジェクト内に使用されていないファイルや依存関係がないかチェックします。
 
@@ -79,7 +96,7 @@
     npx kinp
     ```
 
-## コミット規約
+## :memo: 4. コミット規約
 
 このプロジェクトテンプレートでは、コミットログの可読性と一貫性を保つため、gitmojiとConventional Commitsを組み合わせた規約を採用しています。
 フォーマット：
@@ -136,8 +153,12 @@
     | ✏️ | `:pencil2:` | タイプミスの修正 |
     | 🙈 | `:see_no_evil:` | .gitignoreの追加修正 |
   
+## :building_construction: 5.プロジェクト構成
 
-## :bulb: プロジェクト構成の補足
+- このプロジェクトでは、TypeScriptで書かれたソースコードをカスタムスクリプト`build.ts`でGAS用のJavaScriptに変換します。`src/index.ts`からエクスポートされた関数をすべて検出し、`esbuild`で一つのファイルにまとめます。最後に、GASから直接呼び出せるグローバル関数を自動生成し、バンドルされたコードに繋ぎ込む仕組みです。Webpackというツールで一つのJavaScriptファイル(`dist/index.js`)にまとめています。
+- 詳細は[GAS + Typescript のいい感じのビルド環境を整える](https://zenn.dev/terass_dev/articles/a39ab8d0128eb1)を参照してください。
+
+### プロジェクト構成の補足
 
 - `dependencies`vs`devDependencies`
 
@@ -154,7 +175,7 @@
     - `"engines"`
 プロジェクトが要求するNode.jsとnpmのバージョンを定義しています。互換性のないバージョンを使っている場合に警告を表示します。
 
-## :alien: 最後に
+## :alien: 6. 最後に
 
 本プロジェクトはあくまでもテンプレートのため、各開発プロジェクトにて柔軟にルールを変更して適用してください。
 また、良いルールが見つかれば、本テンプレートを修正し、マージリクエストしてください。

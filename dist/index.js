@@ -4,6 +4,9 @@ function sendForm ( event ) {
 function doPost ( event ) {
   return _entry.doPost ( event ) ;
 };
+function triggerDailyHogehoge ( event ) {
+  return _entry.triggerDailyHogehoge ( event ) ;
+};
 "use strict";
 var _entry = (() => {
   var __defProp = Object.defineProperty;
@@ -28,12 +31,18 @@ var _entry = (() => {
   var index_exports = {};
   __export(index_exports, {
     doPost: () => doPost,
-    sendForm: () => sendForm
+    sendForm: () => sendForm,
+    triggerDailyHogehoge: () => triggerDailyHogehoge
   });
 
   // src/printHelloWorld.ts
   var printHelloWorld = (emailAddress) => {
     console.log(`Hello ${emailAddress}`);
+  };
+
+  // src/execHogehoge.ts
+  var execHogehoge = (event) => {
+    return (event == null ? void 0 : event["day-of-month"]) === 1;
   };
 
   // src/index.ts
@@ -42,6 +51,10 @@ var _entry = (() => {
     printHelloWorld(gwsLoginEmail);
   }
   function doPost(event) {
+  }
+  function triggerDailyHogehoge(event) {
+    let bool = execHogehoge(event);
+    console.log(bool);
   }
   return __toCommonJS(index_exports);
 })();
