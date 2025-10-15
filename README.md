@@ -12,13 +12,20 @@
 開発を始める前に、次のツールをローカル環境にセットアップしてください。
 
 1. `Node.js`のインストール
-このプロジェクトは`Node.js` `v20``LST版`を使用します。
-開発者間の環境を統一するため、バージョン管理ツール`nvm`(Node Version Manager)を利用します。`nvm`を使うことでプロジェクトごとに`Node.js`のバージョンを簡単に切り替えることができます。
+
+    このプロジェクトは`Node.js` `v20` `LST版`を使用します。開発者間の環境を統一するため、バージョン管理ツール`nvm`(Node Version Manager)を利用します。`nvm`を使うことでプロジェクトごとに`Node.js`のバージョンを簡単に切り替えることができます。
     1. `nvm`のインストール
          - [nvm(macOS/Linux)](https://github.com/nvm-sh/nvm)
          - [nvm-windows(Windows)](https://github.com/coreybutler/nvm-windows)
     2. `Node.js`のインストール
-         - プロジェクトのルートディレクトリで次のコマンドを実行してください。`.nvmrc`ファイルに記載のバージョンの`Node.js`がインストールされます。
+         - Windows環境で`nvm-windows`を使用する場合、`.nvmrc`ファイルを読み込んでのインストール及び切り替えができないため、次のコマンドを実行してください。
+
+            ```bash
+            nvm install 20
+            nvm use 20
+            ```
+
+         - nacOSもしくはLinux環境8の場合、プロジェクトのルートディレクトリで次のコマンドを実行してください。`.nvmrc`ファイルに記載のバージョンの`Node.js`がインストールされます。
 
             ```bash
             nvm install
