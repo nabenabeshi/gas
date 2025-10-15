@@ -13,8 +13,7 @@
     "build": "ts-node build.ts",
     "clean": "rimraf ./dist",
     "prebuild": "npm run clean",
-    "reinstall": "rm -rf node_modules && npm install",
-    
+    "reinstall": "rm -rf node_modules && npm install"
   },
   "repository": {
     "type": "git",

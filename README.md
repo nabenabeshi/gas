@@ -53,19 +53,18 @@
     npm install -g gitmoji-cli
     ```
 
-## :rocket: X. プロジェクト設定
+## :rocket: 3. プロジェクト設定
 
 - SCRIPT ID
   - .clasp.json の `INSERT TO YOUR SCRIPT ID`をGASのスクリプトIDに置き換えてください。
   - このプロジェクトでは、GASへのpushは上書き更新（ALL DELETE → PASTE）となるため、GAS側のバックアップは適宜実施してください。
 
-## :rocket: X. 実装の流れ
+## :rocket: 4. 実装の流れ
 
 実装の流れを記載します。
 
 1. 関数の実装
 いい感じに実装してください。サンプルとして日次トリガー用関数の新規作成方法を[こちら](docs/adding-functions.md)に記載するので必要に応じて参照してください。
-
 
 2. 単体テストの実行
 `Jest`を使って`src`ディレクトリ内のテストコードを実行します。
@@ -74,18 +73,18 @@
     npm test
     ```
 
-1. ビルド
+3. ビルド
 `esbuild`を使って`src`ディレクトリのTypeScriptファイルを`dist/index.js`にバンドルします。
 
     ```bash
     npm run build
     ```
 
-1. gitへのコミット
+4. gitへのコミット
 単体テストとビルドが完了したソースコードをgitへコミットしてください。
-コミット規約は[:memo: 4. コミット規約](#memo-4-コミット規約)を参照してください。
+コミット規約は[:memo: 5. コミット規約](#memo-5-コミット規約)を参照してください。
 
-1. GASへの適用
+5. GASへの適用
 ビルドされたファイルと`clasp`を使ってGASプロジェクトにアップロードします。
 
     ```bash
@@ -103,7 +102,7 @@
     npx kinp
     ```
 
-## :memo: 4. コミット規約
+## :memo: 5. コミット規約
 
 このプロジェクトテンプレートでは、コミットログの可読性と一貫性を保つため、gitmojiとConventional Commitsを組み合わせた規約を採用しています。
 フォーマット：
@@ -160,7 +159,7 @@
     | ✏️ | `:pencil2:` | タイプミスの修正 |
     | 🙈 | `:see_no_evil:` | .gitignoreの追加修正 |
   
-## :building_construction: 5.プロジェクト構成
+## :building_construction: 6.プロジェクト構成
 
 - このプロジェクトでは、TypeScriptで書かれたソースコードをカスタムスクリプト`build.ts`でGAS用のJavaScriptに変換します。`src/index.ts`からエクスポートされた関数をすべて検出し、`esbuild`で一つのファイルにまとめます。最後に、GASから直接呼び出せるグローバル関数を自動生成し、バンドルされたコードに繋ぎ込む仕組みです。Webpackというツールで一つのJavaScriptファイル(`dist/index.js`)にまとめています。
 - 詳細は[GAS + Typescript のいい感じのビルド環境を整える](https://zenn.dev/terass_dev/articles/a39ab8d0128eb1)を参照してください。
@@ -182,7 +181,7 @@
     - `"engines"`
 プロジェクトが要求するNode.jsとnpmのバージョンを定義しています。互換性のないバージョンを使っている場合に警告を表示します。
 
-## :alien: 6. 最後に
+## :alien: 7. 最後に
 
 本プロジェクトはあくまでもテンプレートのため、各開発プロジェクトにて柔軟にルールを変更して適用してください。
 また、良いルールが見つかれば、本テンプレートを修正し、マージリクエストしてください。

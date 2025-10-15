@@ -5,11 +5,9 @@
 1. `src/execHogehoge.ts`ファイルを作成し、実装します。
    - 関心の分離の観点から、ロジックは別ファイルに記載することを推奨します。
    - 単体テストも作成しやすくなります。
-<br>
 
 2. `test/execHogehoge.test.ts`ファイルを作成し、単体テストコードを実装します。
    - コードカバー率100%にしてください。
-<br>
 
 3. `src/index.ts`に以下のコードを記述します。
 
@@ -25,7 +23,6 @@
      - イベントオブジェクトについては[イベント オブジェクト](https://developers.google.com/apps-script/guides/triggers/events?hl=ja)を参照してください。
    - 引数を使わない場合は削除しても良いです。
    - 基本的kに、`src/Index.ts`に記載するのは`execHogehoge(event);`のみです。
-<br>
 
 このプロジェクトに以下を実装してありますので参考にしてください。
 
